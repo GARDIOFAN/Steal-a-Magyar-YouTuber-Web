@@ -1,38 +1,67 @@
 :root {
     --primary-color: #00e600; /* KICK Neon Zöld */
     --secondary-color: #ffffff; 
-    --background-dark: #121212; /* Sötét, de nem koromfekete háttér */
+    --background-dark: #121212; 
     --card-background: #1e1e1e;
     --text-light: #ffffff;
     --border-color: #333;
     --shadow-neon: 0 0 10px rgba(0, 230, 0, 0.7);
 }
 
-/* ... (Alapvető stílusok) ... */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
 
 body {
     background-color: var(--background-dark);
     color: var(--text-light);
-    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* HEADER ÉS LOGÓ */
+/* HEADER ÉS NAVIGÁCIÓ */
 header {
-    background-color: #1a1a1a; /* Kicsit sötétebb felső sáv */
+    background-color: #1a1a1a;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 .logo {
     color: var(--primary-color);
     font-size: 2rem;
     font-weight: 800;
+    letter-spacing: 0.1em;
     text-shadow: 0 0 5px rgba(0, 230, 0, 0.4);
 }
-
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
+}
+nav a:hover {
+    color: var(--primary-color);
+}
 /* KICK-STÍLUSÚ GOMBOK (Neon Zöld) */
 .nav-button, .cta-button, .auth-button {
     background-color: var(--primary-color);
     color: var(--background-dark);
-    border-radius: 4px; /* Letisztult, szögletes forma */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px; 
+    cursor: pointer;
     font-weight: 700;
     transition: all 0.3s;
 }
@@ -42,15 +71,22 @@ header {
     box-shadow: var(--shadow-neon);
 }
 
-/* Hős Szekció */
+/* HERO SECTION */
 #hero {
+    background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('placeholder-bg.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border-bottom: 5px solid var(--primary-color);
 }
 #hero h1 {
+    font-size: 4rem;
     color: var(--text-light);
     text-shadow: 0 0 10px rgba(0, 230, 0, 0.5);
 }
-
 .secondary-button {
     background-color: var(--card-background);
     border: 2px solid var(--text-light);
@@ -62,27 +98,102 @@ header {
 }
 
 /* TARTALOM KÁRTYÁK */
+.content-section {
+    padding: 50px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .content-card {
     background: var(--card-background);
+    padding: 30px;
     border-radius: 8px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+.content-card:hover {
+    transform: translateY(-5px);
 }
 .content-card h2 {
     color: var(--primary-color);
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
 }
-
 /* JÁTÉK LÉPÉSEK (DESIGN) */
+.game-step-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
 .game-step {
     background: var(--background-dark);
-    border-left: 5px solid var(--primary-color); /* Zöld bal oldali sáv */
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
 }
 .game-step:hover {
     transform: translateY(-5px);
-    border-left-color: var(--secondary-color);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    border-left-color: var(--text-light);
 }
 .game-step h3 {
     color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* MODÁL (Bejelentkezés/Regisztráció) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); 
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: var(--card-background);
+    margin: 10% auto; 
+    padding: 40px;
+    border-radius: 8px;
+    width: 90%; 
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+.modal-content input {
+    background-color: var(--background-dark);
+    border: 1px solid var(--border-color);
+    /* ... (további input stílusok) ... */
+}
+/* KISEBB MODÁL A SZOLGÁLTATÁS HIÁNYÁNAK JELZÉSÉRE */
+.small-modal {
+    margin: 20% auto; 
+    max-width: 350px;
+    padding: 30px;
+}
+.close-btn-service {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close-btn-service:hover {
+    color: var(--primary-color);
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #666;
+    background-color: var(--card-background);
 }
