@@ -1,109 +1,101 @@
 :root {
-    --primary-color: #ff0055; /* Élénk, modern rózsaszín/piros */
-    --secondary-color: #00bcd4; /* Kék kiemelő szín */
-    --background-dark: #0a0a0a; /* Szuper sötét háttér */
-    --card-background: #1c1c1c; /* Sötét kártya háttér */
+    --primary-color: #ff0055; /* Neon Pink */
+    --secondary-color: #00ffff; /* Neon Cyan */
+    --accent-gradient: linear-gradient(90deg, #ff0055 0%, #00ffff 100%); /* Fő színátmenet */
+    --background-dark: #0a0a0a;
+    --card-background: #1c1c1c;
     --text-light: #f0f0f0;
-    --border-color: #333;
-    --shadow-light: rgba(255, 0, 85, 0.2);
+    --shadow-neon: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(255, 0, 85, 0.5); /* Neon árnyék */
+    --shadow-glow: 0 0 8px var(--primary-color);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth; /* Sima görgetés bekapcsolva */
-    font-family: 'Montserrat', sans-serif;
-}
+/* ... (Alapvető style resetek és font beállítások) ... */
 
-body {
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* HEADER ÉS NAVIGÁCIÓ */
+/* HEADER ÉS LOGÓ */
 header {
-    background-color: var(--card-background);
-    padding: 15px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--primary-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    /* ... stílusok ... */
+    border-bottom: 3px solid var(--secondary-color);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 }
-
 .logo {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary-color);
-}
-
-nav a {
     /* ... stílusok ... */
-    transition: color 0.3s, background-color 0.3s;
+    text-shadow: 0 0 5px var(--secondary-color);
 }
-
-nav a:hover {
-    color: var(--primary-color);
-    background-color: var(--border-color);
-}
-
-.nav-button {
-    /* ... stílusok ... */
-    transition: transform 0.2s, background-color 0.3s;
-}
-
 .nav-button:hover {
-    background-color: #d10047;
-    transform: scale(1.05); /* Kisebb animáció ráhúzásra */
+    /* ... stílusok ... */
+    transform: scale(1.08);
 }
 
 /* HERO SZEKCIÓ */
 #hero {
-    /* Helyettesítsd a 'placeholder-bg.jpg'-t a játékod bannerével */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-bg.jpg') no-repeat center center/cover;
-    height: 60vh;
-    /* ... elrendezés ... */
-    border-bottom: 5px solid var(--secondary-color);
+    /* ... stílusok ... */
+    border-bottom: 5px solid var(--primary-color);
 }
 
+/* H1 neon animáció */
+#hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    animation: textGlow 1.5s infinite alternate; 
+}
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px var(--primary-color); }
+    to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--secondary-color); }
+}
+
+/* CTA GOMBOK (GRADIENTTEL) */
 .cta-button {
-    /* ... stílusok ... */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    background: var(--accent-gradient); /* Színátmenet! */
+    color: var(--background-dark);
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s;
 }
-
 .cta-button:hover {
-    background-color: #d10047;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px var(--shadow-light); /* Kiemeli a gombot */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), var(--shadow-neon);
 }
-
 .secondary-button {
-    background-color: var(--secondary-color);
+    background: var(--card-background);
+    border: 2px solid var(--secondary-color);
+    color: var(--text-light);
 }
 
-/* TARTALOM SZEKCIÓK ÉS ANIMÁCIÓK */
+/* TARTALOM KÁRTYÁK (DESIGNED-CARD) */
 .content-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 5px var(--primary-color); /* Kártya fényhatás */
+    border: 1px solid var(--border-color);
+}
+
+/* H2 címsor gradienttel */
+.content-card h2 {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* A szöveg színe a gradient lesz */
+    font-size: 2rem;
+}
+
+/* JÁTÉK LÉPÉSEK (DESIGN) */
+.game-step-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.game-step {
+    background: var(--background-dark);
+    border-radius: 8px;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.game-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--secondary-color); /* Lépés kiemelés */
+}
+
+.game-step h3 {
+    color: var(--primary-color);
     /* ... stílusok ... */
-    transition: transform 0.3s;
 }
-
-.content-card:hover {
-    transform: translateY(-5px); /* Kiemeli a kártyát ráhúzásra */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animated-section {
-    animation: fadeIn 1s ease-out; /* Alap animáció a szekcióknak */
-}
-
-/* ... A modál és űrlap stílusok a modern, sötét designhoz ... */
