@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceDownModal.style.display = 'none';
     }
 
-    // 3. A Bejelentkezés/Regisztráció Gombok FELADATA: Megjeleníteni az Új Hiba Modált
+    // A Bejelentkezés/Regisztráció Gombok FELADATA: Megjeleníteni az Új Hiba Modált
     document.querySelectorAll('.auth-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -60,12 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 2. Megnyitjuk a kis "Szolgáltatás leállt" modált
             serviceDownModal.style.display = 'block';
-
-            // A Firebase kód majd ide fog kerülni, hogy felülírja ezt a viselkedést!
         });
     });
     
-    // 4. Sima Görgés (A navigációhoz)
+    // Sima Görgés (A navigációhoz)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             if (this.id !== 'show-register' && this.id !== 'show-login') {
