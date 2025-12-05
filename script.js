@@ -1,7 +1,8 @@
-// script.js
+// script.js (A kód megegyezik a korábbival, de most már az új dizájnnal dolgozik)
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Modál Kezelés (Felugró ablak logika)
+    // ... (A logikusan van beállítva a modál megnyitására/bezárására) ...
     const modal = document.getElementById('auth-modal');
     const loginBtn = document.getElementById('login-btn');
     const closeBtn = document.querySelector('.close-btn');
@@ -10,37 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const showRegister = document.getElementById('show-register');
     const showLogin = document.getElementById('show-login');
 
-    // Modál megnyitása a nav gombbal
-    loginBtn.onclick = function() {
-        modal.style.display = 'block';
-    }
+    loginBtn.onclick = function() { modal.style.display = 'block'; }
+    closeBtn.onclick = function() { modal.style.display = 'none'; }
+    window.onclick = function(event) { if (event.target == modal) { modal.style.display = 'none'; } }
+    
+    showRegister.onclick = function(e) { e.preventDefault(); loginForm.style.display = 'none'; registerForm.style.display = 'block'; }
+    showLogin.onclick = function(e) { e.preventDefault(); registerForm.style.display = 'none'; loginForm.style.display = 'block'; }
 
-    // Modál bezárása (X gomb és kattintás kívül)
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    // Űrlap váltása (Regisztráció / Bejelentkezés)
-    showRegister.onclick = function(e) {
-        e.preventDefault();
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
-    }
-    showLogin.onclick = function(e) {
-        e.preventDefault();
-        registerForm.style.display = 'none';
-        loginForm.style.display = 'block';
-    }
 
     // 2. Sima Görgés (A navigációhoz)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Nem zavarja a modál váltó linkeket
             if (this.id !== 'show-register' && this.id !== 'show-login') {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -54,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.auth-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('A fiókkezelés funkcióhoz (Bejelentkezés/Regisztráció) a szerveroldali kód (Firebase) integrációja szükséges!');
+            alert('❗ HIÁNYZÓ FUNKCIÓ ❗\n\n A fiókkezeléshez (Bejelentkezés/Regisztráció, profilkép, adatok mentése) szükség van a **Firebase (Backend)** integrációjára. Ezt a gombot a következő lépésben fogjuk működővé tenni!');
         });
     });
 });
