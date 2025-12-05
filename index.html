@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steal a Magyar YouTuber | Játékközpont</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -13,7 +13,7 @@
         <nav>
             <a href="#about" class="nav-link">Játék Info</a>
             <a href="#how-to-play" class="nav-link">Hogyan játssz?</a>
-            <a href="https://discord.gg/pKJBFE8KY9" target="_blank" class="nav-link discord-link">Discord Szerver</a>
+            <a href="https://discord.gg/pKJBFE8KY9" target="_blank" class="nav-link discord-link">💬 Discord Szerver</a>
             <button id="login-btn" class="nav-button">Bejelentkezés / Regisztráció</button>
             <div id="user-profile-nav" style="display: none;">
                 <a href="#profile" class="nav-link">Profil</a>
@@ -36,7 +36,7 @@
     </section>
 
     <section id="about" class="content-section animated-section">
-        <div class="content-card">
+        <div class="content-card designed-card">
             <h2>🗣️ Üdvözlünk a Steal a Magyar Youtuber-ben!</h2>
             <p class="highlight">👍 Lájkold a játékot és csatlakozz a csoporthoz!</p>
             <p>💻 Támogatja az asztali számítógép, mobil és tablet játékosokat.</p>
@@ -44,45 +44,37 @@
     </section>
 
     <section id="how-to-play" class="content-section animated-section">
-        <div class="content-card">
-            <h2>Hogyan kell játszani:</h2>
-            <ul class="feature-list">
-                <li class="animated-li">👽 Vásárolj egy YouTubert</li>
-                <li class="animated-li">🥷 Lopj YouTubereket más játékosoktól</li>
-                <li class="animated-li">💸 Generálj pénzt</li>
-                <li class="animated-li">🐦‍🔥 Kezdj Újra (Rebirth), hogy minél több pénzt keress!</li>
-                <li class="animated-li">✋ Vásárolj pofonokat és troll felszerelést más játékosok trollkodásához!</li>
-            </ul>
-        </div>
-    </section>
+        <div class="content-card designed-card">
+            <h2>🏆 Hogyan legyél te a legjobb YouTuber Lopó?</h2>
+            <p class="section-intro">A siker kulcsa az, hogy megszerezd a legértékesebb YouTubereket, hatékonyan védekezz, és természetesen, lopj!</p>
 
-    <section id="profile" class="content-section animated-section" style="display: none;">
-        <div class="content-card profile-card">
-            <h2>👤 A Te Profilod</h2>
-            <p class="warning">⚠️ FIGYELEM: A profil, bejelentkezés és mentés funkciókhoz **Firebase (Backend)** integráció szükséges!</p>
+            <div class="game-step-container">
+                <div class="game-step step-one">
+                    <h3>1. 👽 Vásárlás és Bázisépítés</h3>
+                    <p>Kezdd azzal, hogy megvásárolod az első, alacsony értékű YouTubereket. Ők generálják az első pénzedet, amiből fejlesztheted a bázisodat és a biztonsági rendszereket. Ne feledd: minél jobb a bázisod, annál nehezebb téged kirabolni!</p>
+                </div>
+                <div class="game-step step-two">
+                    <h3>2. 💎 Sokat Érő YouTuberek Szerzése</h3>
+                    <p>A játék igazi célja: **szerezz minél több, sokat érő YouTubert!** Ők generálják a legtöbb pénzt és a legmagasabb pontszámot. Ezeket a legendás figurákat általában csak a legdrágább ládákban találod meg, vagy a legveszélyesebb lopások során szerezheted meg.</p>
+                </div>
+                <div class="game-step step-three">
+                    <h3>3. 🥷 Lopás és Kockázat</h3>
+                    <p>Ne csak várj! **Lopj más játékosoktól!** Törj be a bázisukra, és vidd el a nehezen megszerzett YouTubereiket! Minél értékesebb a kiszemelt YouTuber, annál nagyobb a kockázat, hogy lebuksz, de annál nagyobb a jutalom is.</p>
+                </div>
+                <div class="game-step step-four">
+                    <h3>4. 🛡️ Védekezés és Trollkodás</h3>
+                    <p>**Védd meg a YouTubereidet!** Építs csapdákat és biztonsági rendszereket. Vásárolj pofonokat és troll felszerelést, hogy megnehezítsd más játékosok dolgát, és bosszút állj, ha téged raboltak ki!</p>
+                </div>
+                <div class="game-step step-five">
+                    <h3>5. 🐦‍🔥 Kezdj Újra (Rebirth)</h3>
+                    <p>A Rebirth a kulcs a maximális profit eléréséhez. Kezdj újra, hogy szorzókat szerezz a pénzkereséshez, és még gyorsabban juss el a legritkább YouTuberekhez!</p>
+                </div>
             </div>
+        </div>
     </section>
 
     <div id="auth-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div id="login-form">
-                <h3>Bejelentkezés</h3>
-                <input type="email" placeholder="E-mail cím" required>
-                <input type="password" placeholder="Jelszó" required>
-                <button class="auth-button">Bejelentkezés</button>
-                <p>Nincs még fiókod? <a href="#" id="show-register">Regisztrálj!</a></p>
-            </div>
-            <div id="register-form" style="display: none;">
-                <h3>Regisztráció</h3>
-                <input type="email" placeholder="E-mail cím" required>
-                <input type="password" placeholder="Jelszó (min. 6 karakter)" required>
-                <input type="password" placeholder="Jelszó újra" required>
-                <button class="auth-button">Fiók Létrehozása</button>
-                <p>Már van fiókod? <a href="#" id="show-login">Jelentkezz be!</a></p>
-            </div>
         </div>
-    </div>
     
     <footer>
         <p>Készítette: [A felhasználóneved] | &copy; 2025 Steal a Magyar YouTuber.</p>
