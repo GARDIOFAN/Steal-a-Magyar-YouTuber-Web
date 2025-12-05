@@ -5,60 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steal a Magyar YouTuber | Játékközpont</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">Steal a Magyar YouTuber</div>
+        <div class="logo">S M Y</div>
         <nav>
-            <a href="#about">Játék Info</a>
-            <a href="#community">Közösség</a>
+            <a href="#about" class="nav-link">Játék Info</a>
+            <a href="#how-to-play" class="nav-link">Hogyan játssz?</a>
+            <a href="https://discord.gg/pKJBFE8KY9" target="_blank" class="nav-link discord-link">Discord Szerver</a>
             <button id="login-btn" class="nav-button">Bejelentkezés / Regisztráció</button>
             <div id="user-profile-nav" style="display: none;">
-                <span id="username-display"></span>
-                <a href="#profile">Profil</a>
+                <a href="#profile" class="nav-link">Profil</a>
                 <button id="logout-btn" class="nav-button logout-btn">Kijelentkezés</button>
             </div>
         </nav>
     </header>
 
-    <section id="hero">
+    <section id="hero" class="animated-section">
         <div class="hero-content">
-            <h2>Lopj, Fejlessz, Győzz!</h2>
-            <p>A legizgalmasabb magyar Roblox élmény megérkezett!</p>
-            <a href="[A Roblox Játék Linkje]" target="_blank" class="cta-button">Játssz Most!</a>
+            <h1>Steal a Magyar YouTuber</h1>
+            <p class="subtitle">Lopj, Fejlessz, Trollkodj!</p>
+            <a href="https://www.roblox.com/games/1400824064674/Steal-a-Magyar-Youtuber" target="_blank" class="cta-button animated-button">
+                🎮 Játssz Most a Robloxon!
+            </a>
+            <a href="https://discord.gg/pKJBFE8KY9" target="_blank" class="cta-button secondary-button animated-button">
+                💬 Csatlakozz a Discord Szerverre!
+            </a>
         </div>
     </section>
 
-    <section id="profile" style="display: none;">
-        <h2>👤 A Te Profilod</h2>
-        <div class="profile-container">
-            <div class="profile-header">
-                <div class="profile-picture-upload">
-                    <img id="profile-img" src="default-avatar.png" alt="Profilkép">
-                    <label for="pfp-upload" class="upload-label">Kép feltöltése</label>
-                    <input type="file" id="pfp-upload" style="display: none;">
-                </div>
-                <div class="profile-info">
-                    <h3 id="profile-username">Felhasználói Név</h3>
-                    <div class="banner-upload">
-                        <img id="profile-banner" src="default-banner.jpg" alt="Banner" class="banner-image">
-                        <label for="banner-upload" class="upload-label banner-label">Banner cseréje</label>
-                        <input type="file" id="banner-upload" style="display: none;">
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-details">
-                <label for="bio">Rövid Leírás (Bio):</label>
-                <textarea id="bio" rows="4" placeholder="Írd le magad és a stratégiádat!"></textarea>
-                
-                <label for="youtubers">Ellopott YouTuberek listája:</label>
-                <textarea id="youtubers" rows="3" placeholder="Pl.: Nessaj, Radics Peti, Pamkutya..."></textarea>
-                
-                <button class="save-button">Adatok Mentése</button>
-            </div>
+    <section id="about" class="content-section animated-section">
+        <div class="content-card">
+            <h2>🗣️ Üdvözlünk a Steal a Magyar Youtuber-ben!</h2>
+            <p class="highlight">👍 Lájkold a játékot és csatlakozz a csoporthoz!</p>
+            <p>💻 Támogatja az asztali számítógép, mobil és tablet játékosokat.</p>
         </div>
+    </section>
+
+    <section id="how-to-play" class="content-section animated-section">
+        <div class="content-card">
+            <h2>Hogyan kell játszani:</h2>
+            <ul class="feature-list">
+                <li class="animated-li">👽 Vásárolj egy YouTubert</li>
+                <li class="animated-li">🥷 Lopj YouTubereket más játékosoktól</li>
+                <li class="animated-li">💸 Generálj pénzt</li>
+                <li class="animated-li">🐦‍🔥 Kezdj Újra (Rebirth), hogy minél több pénzt keress!</li>
+                <li class="animated-li">✋ Vásárolj pofonokat és troll felszerelést más játékosok trollkodásához!</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="profile" class="content-section animated-section" style="display: none;">
+        <div class="content-card profile-card">
+            <h2>👤 A Te Profilod</h2>
+            <p class="warning">⚠️ FIGYELEM: A profil, bejelentkezés és mentés funkciókhoz **Firebase (Backend)** integráció szükséges!</p>
+            </div>
     </section>
 
     <div id="auth-modal" class="modal">
@@ -66,26 +68,26 @@
             <span class="close-btn">&times;</span>
             <div id="login-form">
                 <h3>Bejelentkezés</h3>
-                <input type="email" id="login-email" placeholder="E-mail cím" required>
-                <input type="password" id="login-password" placeholder="Jelszó" required>
+                <input type="email" placeholder="E-mail cím" required>
+                <input type="password" placeholder="Jelszó" required>
                 <button class="auth-button">Bejelentkezés</button>
                 <p>Nincs még fiókod? <a href="#" id="show-register">Regisztrálj!</a></p>
             </div>
-
             <div id="register-form" style="display: none;">
                 <h3>Regisztráció</h3>
-                <input type="email" id="reg-email" placeholder="E-mail cím" required>
-                <input type="password" id="reg-password" placeholder="Jelszó (min. 6 karakter)" required>
-                <input type="password" id="reg-password-confirm" placeholder="Jelszó újra" required>
+                <input type="email" placeholder="E-mail cím" required>
+                <input type="password" placeholder="Jelszó (min. 6 karakter)" required>
+                <input type="password" placeholder="Jelszó újra" required>
                 <button class="auth-button">Fiók Létrehozása</button>
                 <p>Már van fiókod? <a href="#" id="show-login">Jelentkezz be!</a></p>
             </div>
-            </div>
+        </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 Steal a Magyar YouTuber. Minden jog fenntartva.</p>
+        <p>Készítette: [A felhasználóneved] | &copy; 2025 Steal a Magyar YouTuber.</p>
     </footer>
 
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
