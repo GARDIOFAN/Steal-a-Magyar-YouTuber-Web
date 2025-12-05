@@ -1,14 +1,14 @@
 :root {
-    --primary-color: #00d4ff; /* Cyber-Kék */
-    --secondary-color: #ffaa00; /* Kiegészítő narancs/sárga */
-    --background-dark: #090909;
-    --card-background: #181818;
+    --primary-color: #00e600; /* KICK Neon Zöld */
+    --secondary-color: #ffffff; 
+    --background-dark: #121212; /* Sötét, de nem koromfekete háttér */
+    --card-background: #1e1e1e;
     --text-light: #ffffff;
     --border-color: #333;
-    --shadow-cyber: 0 0 15px rgba(0, 212, 255, 0.4);
+    --shadow-neon: 0 0 10px rgba(0, 230, 0, 0.7);
 }
 
-/* ... (Alapvető style resetek) ... */
+/* ... (Alapvető stílusok) ... */
 
 body {
     background-color: var(--background-dark);
@@ -16,82 +16,73 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* HEADER ÉS NAVIGÁCIÓ */
+/* HEADER ÉS LOGÓ */
 header {
-    background-color: var(--card-background);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    border-bottom: 3px solid var(--primary-color);
+    background-color: #1a1a1a; /* Kicsit sötétebb felső sáv */
+    border-bottom: 2px solid var(--primary-color);
 }
 .logo {
     color: var(--primary-color);
-    text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 0 0 5px rgba(0, 230, 0, 0.4);
 }
-.nav-button {
+
+/* KICK-STÍLUSÚ GOMBOK (Neon Zöld) */
+.nav-button, .cta-button, .auth-button {
     background-color: var(--primary-color);
     color: var(--background-dark);
-    border-radius: 40px; /* Lekerekített gomb */
+    border-radius: 4px; /* Letisztult, szögletes forma */
+    font-weight: 700;
     transition: all 0.3s;
 }
-.nav-button:hover {
-    background-color: #00b3e6;
-    transform: scale(1.05);
-    box-shadow: var(--shadow-cyber);
+.nav-button:hover, .cta-button:hover, .auth-button:hover {
+    background-color: #00c200;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-neon);
 }
 
-/* HERO SECTION */
+/* Hős Szekció */
 #hero {
-    /* Kép helyettesítése a saját bannereddel! */
-    background: linear-gradient(rgba(9, 9, 9, 0.8), rgba(9, 9, 9, 0.8)), url('placeholder-bg.jpg') no-repeat center center/cover;
-    height: 70vh;
-    border-bottom: 4px solid var(--secondary-color);
+    border-bottom: 5px solid var(--primary-color);
 }
 #hero h1 {
-    font-size: 5rem;
-    text-shadow: 0 0 10px var(--primary-color);
+    color: var(--text-light);
+    text-shadow: 0 0 10px rgba(0, 230, 0, 0.5);
 }
-.cta-button {
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    font-weight: 700;
-}
-.cta-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), var(--shadow-cyber);
-}
+
 .secondary-button {
     background-color: var(--card-background);
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--text-light);
     color: var(--text-light);
 }
+.secondary-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
 
-/* TARTALOM KÁRTYÁK - LETISZTULT */
+/* TARTALOM KÁRTYÁK */
 .content-card {
     background: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    border: 1px solid #2e2e2e;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
 }
-
 .content-card h2 {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* JÁTÉK LÉPÉSEK (Elegáns dobozok) */
+/* JÁTÉK LÉPÉSEK (DESIGN) */
 .game-step {
     background: var(--background-dark);
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--primary-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, border-left-color 0.3s;
+    border-left: 5px solid var(--primary-color); /* Zöld bal oldali sáv */
 }
 .game-step:hover {
     transform: translateY(-5px);
     border-left-color: var(--secondary-color);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 .game-step h3 {
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
